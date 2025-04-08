@@ -1,0 +1,833 @@
+/* --- styles.css --- */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- Variables and Reset --- */
+:root {
+  --bg-gradient: linear-gradient(135deg, #1a237e, #4a148c); /* Deep purple/blue gradient */
+  --container-bg: rgba(20, 20, 40, 0.6); /* Dark semi-transparent purple-ish */
+  --element-bg: rgba(40, 40, 60, 0.7); /* Slightly lighter element background */
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --input-border: rgba(255, 255, 255, 0.3);
+  --text-color: #e0e0e0; /* Light grey text */
+  --text-secondary: #bdbdbd; /* Dimmer text */
+  --accent-color: #80deea; /* Light cyan accent */
+  --accent-hover: #4dd0e1;
+  --primary-button-bg: var(--accent-color);
+  --primary-button-text: #1a237e; /* Dark text for light accent button */
+  --primary-button-hover: var(--accent-hover);
+  --danger-color: #e57373; /* Softer red */
+  --danger-hover: #ef5350;
+  --warning-color: #ffb74d; /* Orange */
+  --success-color: #81c784; /* Green */
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 15px;
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --backdrop-blur: 10px;
+  --font-family: 'Poppins', sans-serif;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  background-attachment: fixed; /* Prevent gradient scroll */
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align top for scroll */
+  min-height: 100vh;
+  padding: 30px 15px;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Main Container --- */
+.container {
+  background: var(--container-bg);
+  backdrop-filter: blur(var(--backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur)); /* Safari */
+  padding: 25px 30px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 95%;
+  max-width: 600px; /* Slightly wider max-width */
+  text-align: center;
+  margin-bottom: 30px; /* Space at bottom */
+  transition: all var(--transition-speed) ease;
+}
+
+/* --- Headings and Text --- */
+h1, h2, h3 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: var(--accent-color); /* Accent for main title */
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  border-bottom: 1px solid var(--input-border);
+  padding-bottom: 8px;
+  color: var(--accent-color);
+}
+
+h3 {
+  font-size: 1.1rem;
+  color: #f5f5f5;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+p {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* --- Form Elements --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(128, 222, 234, 0.3); /* Focus ring */
+}
+
+select {
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23e0e0e0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px 12px;
+  padding-right: 40px; /* Space for custom arrow */
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* --- Buttons --- */
+button {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: var(--border-radius-md);
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  background: var(--primary-button-bg);
+  color: var(--primary-button-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background: var(--primary-button-hover);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Specific Button Styles */
+#leave-btn, /* Added */
+#reset-btn,
+#confirm-reset-btn {
+  background-color: var(--danger-color);
+  color: white;
+}
+#leave-btn:hover, /* Added */
+#reset-btn:hover,
+#confirm-reset-btn:hover {
+  background-color: var(--danger-hover);
+}
+
+/* Make leave button slightly less wide than others if desired */
+#leave-btn {
+    width: auto; /* Allow button to size based on content */
+    padding: 10px 25px; /* Adjust padding */
+    display: block; /* Make it a block to center easily */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Add space above */
+}
+
+#sort-teams-btn, #resort-teams-btn {
+  background-color: var(--success-color);
+  color: white;
+}
+#sort-teams-btn:hover, #resort-teams-btn:hover {
+  background-color: #66bb6a; /* Slightly darker green */
+}
+
+#save-admin-btn, #add-player-btn, #save-rules-announcements-btn,
+#join-btn /* Style join button like others */
+{
+  background-color: var(--accent-color);
+  color: var(--primary-button-text);
+}
+#save-admin-btn:hover, #add-player-btn:hover, #save-rules-announcements-btn:hover,
+#join-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+
+#cancel-reset-btn, #admin-logout-btn {
+  background-color: var(--element-bg);
+  color: var(--text-color);
+  border: 1px solid var(--input-border);
+  box-shadow: none;
+}
+#cancel-reset-btn:hover, #admin-logout-btn:hover {
+  background-color: rgba(40, 40, 60, 0.9);
+  border-color: var(--accent-color);
+}
+
+/* --- Lists (Waiting, Team Mates, Admin) --- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  text-align: left;
+}
+
+li {
+  background: var(--element-bg);
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  border: 1px solid transparent; /* Prepare for hover border */
+  flex-wrap: wrap; /* Allow wrapping for long names/details */
+}
+
+li:hover {
+  background: rgba(50, 50, 70, 0.8);
+  transform: translateX(5px);
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Span for skill level / substitute status */
+.player-details {
+  color: var(--text-secondary);
+  font-size: 0.9em;
+  margin-left: 10px;
+  white-space: nowrap; /* Prevent wrap */
+}
+
+/* Specific list item styles */
+li.no-players, li.error {
+    justify-content: center;
+    font-style: italic;
+    color: var(--text-secondary);
+    background: transparent;
+}
+li:hover.no-players, li:hover.error {
+    transform: none;
+    border-left: none;
+}
+
+
+/* Player Item specific styles (Admin drag/drop) */
+.player-item {
+  cursor: grab;
+  font-weight: 600;
+  border: 1px solid var(--input-border);
+}
+.player-item:active {
+  cursor: grabbing;
+}
+
+/* --- User Info & Team Info Sections (Member View) --- */
+#user-info, #team-info {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  background: var(--element-bg);
+  text-align: left;
+  border: 1px solid var(--input-border);
+  transition: all var(--transition-speed) ease-in-out;
+  opacity: 0; /* Start hidden for animation */
+  max-height: 0; /* Start collapsed */
+  overflow: hidden;
+}
+
+#user-info.visible, #team-info.visible {
+  opacity: 1;
+  max-height: 1000px; /* Allow expansion */
+}
+
+#user-info h2, #team-info h2 { /* Style the H2s within these sections */
+    margin-top: 0; /* Remove default top margin */
+    border-bottom: none; /* Remove default border */
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#user-info p {
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+#user-info strong {
+  color: var(--accent-color);
+  margin-right: 5px;
+  min-width: 90px; /* Align labels */
+  display: inline-block;
+}
+#display-name, #display-skill {
+  font-weight: 600;
+}
+
+#team-name { /* This is now the H2 inside #team-info */
+  color: var(--accent-color);
+  font-size: 1.4rem; /* Match other H2s */
+}
+
+#team-mates li strong { /* Style the '(You)' text */
+    color: var(--accent-color);
+    margin-left: 5px;
+}
+
+
+#status-msg {
+  margin-top: 20px;
+  font-style: italic;
+  color: var(--warning-color);
+  /* Use classes for visibility */
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity var(--transition-speed) ease, max-height var(--transition-speed) ease;
+}
+#status-msg.visible {
+   opacity: 1;
+   max-height: 100px; /* Allow space */
+}
+
+/* --- Rules and Announcements --- */
+#rules-announcements-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--element-bg);
+  border-radius: var(--border-radius-md);
+  text-align: left;
+  border: 1px solid var(--input-border);
+}
+
+#rules-announcements-section h3,
+#rules-announcements-section h4 /* Style admin heading */
+{
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 0; /* Override general h2 margin */
+}
+
+#rules-announcements-section h4 {
+    margin-top: 15px; /* Space above current display in admin */
+    font-size: 1rem;
+}
+
+#rules-announcements-display { /* Both member and admin */
+  font-size: 0.95rem;
+  color: var(--text-color);
+  white-space: pre-wrap; /* Preserves line breaks and spacing */
+  max-height: 150px; /* Limit height */
+  overflow-y: auto; /* Add scroll if needed */
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: var(--border-radius-sm);
+  margin-top: 5px; /* Space below heading */
+}
+
+/* Admin specific textarea */
+#rules-announcements-input {
+  margin-bottom: 10px; /* Space before save button */
+}
+
+/* --- Toast Notifications --- */
+#toast { /* Member view toast */
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 30, 50, 0.95); /* Darker toast */
+  backdrop-filter: blur(5px);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow);
+  z-index: 1001;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeInOutToast 3s ease-in-out forwards;
+}
+
+.custom-toast { /* Admin view toast */
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Start off screen */
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    padding: 12px 20px;
+    border-radius: var(--border-radius-md);
+    font-size: 1rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+    pointer-events: none;
+    border: 1px solid var(--input-border);
+    box-shadow: var(--shadow);
+}
+
+.custom-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+#toast-confirm { /* Reset confirmation */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--container-bg);
+  backdrop-filter: blur(var(--backdrop-blur));
+  color: var(--text-color);
+  border: 1px solid var(--input-border);
+  padding: 30px;
+  z-index: 1002; /* Above other toasts */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+#toast-confirm p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: white;
+}
+
+#toast-confirm button {
+  width: auto; /* Allow buttons to size naturally */
+  padding: 10px 25px;
+  margin: 0 10px;
+}
+
+/* --- Admin Specific Styles --- */
+
+/* Login Form */
+#login-form h2 { margin-top: 0; } /* Adjust heading */
+
+#login-error {
+  color: var(--danger-color);
+  margin-top: 15px;
+  font-weight: 600;
+  display: block;
+  min-height: 1.2em; /* Prevent layout shift */
+}
+
+/* Admin Dashboard Sections */
+#admin-dashboard > p:first-of-type { /* Welcome message */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrap on small screens */
+}
+#admin-name-input {
+    flex-grow: 1;
+    margin-bottom: 0;
+    max-width: 250px;
+}
+
+#admin-dashboard label:not(.switch) { /* Labels for skill, etc. */
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* Toggle Switch */
+.switch-container { /* Container for switch + label */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 10px;
+    background: var(--element-bg);
+    border-radius: var(--border-radius-md);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #555; transition: var(--transition-speed); border-radius: 28px;
+}
+.slider:before {
+  position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px;
+  background-color: white; transition: var(--transition-speed); border-radius: 50%;
+}
+input:checked + .slider { background-color: var(--success-color); }
+input:checked + .slider:before { transform: translateX(22px); }
+/* Added .round class for consistency if needed, though border-radius covers it */
+.slider.round { border-radius: 28px; }
+.slider.round:before { border-radius: 50%; }
+
+
+#toggle-label, #edit-mode-label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Add Player Section */
+#add-player-section {
+  margin-top: 25px;
+  padding: 20px;
+  background: var(--element-bg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--input-border);
+}
+#add-player-section h2 { margin-top: 0; }
+#add-player-section input,
+#add-player-section select { margin-bottom: 10px; }
+#add-player-section button { margin-top: 5px; }
+
+/* Waiting List Count */
+#waiting-count {
+  font-weight: bold;
+  color: var(--accent-color);
+  background: rgba(128, 222, 234, 0.2);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+/* Teams Container */
+#teams-container {
+  margin-top: 20px;
+  padding: 15px 0; /* Remove side padding, let cards handle it */
+  background: transparent;
+  border-radius: var(--border-radius-md);
+  text-align: left;
+  /* max-height: 450px; // Remove fixed height? */
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+  gap: 20px;
+}
+
+/* Individual Team Card */
+.team-card {
+  background: var(--element-bg);
+  padding: 15px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--input-border);
+  transition: box-shadow var(--transition-speed) ease;
+  display: flex; /* Use flexbox for better internal layout */
+  flex-direction: column; /* Stack header and list vertically */
+}
+.team-card:hover {
+   box-shadow: 0 0 15px rgba(128, 222, 234, 0.2);
+}
+.team-card h3 {
+  color: var(--accent-color);
+  border-bottom: 1px solid var(--input-border);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  flex-shrink: 0; /* Prevent header shrinking */
+}
+.team-card h3 .team-weight { /* Style for weight display */
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.team-list {
+  min-height: 50px; /* Ensure drop target area */
+  padding: 5px;
+  border-radius: var(--border-radius-sm);
+  background: rgba(0, 0, 0, 0.1);
+  flex-grow: 1; /* Allow list to take remaining space */
+}
+
+/* Drag and Drop Styles */
+.player-item.sortable-ghost {
+  opacity: 0.4;
+  background: var(--accent-color);
+  color: #1a237e;
+}
+.player-item.sortable-chosen {
+  background: var(--accent-hover);
+  color: #1a237e;
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.sortable-ghost-trash { /* Optional ghost style for trash */
+    background: rgba(255, 82, 82, 0.5);
+    border: 1px dashed var(--danger-hover);
+}
+
+/* Edit Mode Controls */
+.edit-controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  background: var(--element-bg);
+  border-radius: var(--border-radius-md);
+  flex-wrap: wrap; /* Allow wrap */
+}
+#undo-btn {
+  width: auto;
+  padding: 8px 15px;
+  background: var(--warning-color);
+  color: #333; /* Darker text on orange */
+}
+#undo-btn:disabled {
+  background-color: #555;
+  color: #999;
+}
+#undo-btn:hover:not(:disabled) {
+   background-color: #ffa726; /* Darker orange */
+}
+
+/* Trash Bin */
+#trash-bin {
+  background: rgba(255, 82, 82, 0.15);
+  border: 2px dashed var(--danger-color);
+  color: var(--danger-color);
+  padding: 25px;
+  margin-top: 25px;
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  /* display: none; // Controlled by 'hidden' class */
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+#trash-bin.active { /* If using 'active' for visibility */
+  display: block;
+}
+#trash-bin.trash-hover { /* Style when dragging over (JS needs to add this class) */
+  background: rgba(255, 82, 82, 0.3);
+  border-color: var(--danger-hover);
+}
+
+/* --- Utility Classes --- */
+.hidden {
+  display: none !important; /* Override other display styles if needed */
+}
+.visible { /* For elements using visibility transitions */
+   /* Styles like opacity: 1, max-height: ... are applied here */
+}
+
+
+/* --- Keyframes for Animations --- */
+@keyframes fadeInOutToast {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+  }
+  .container {
+    padding: 20px 15px;
+    max-width: 95%; /* Allow container to use more width */
+  }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+  button { padding: 12px 15px; font-size: 0.95rem; }
+  #teams-container {
+    grid-template-columns: 1fr; /* Stack teams on small screens */
+  }
+  .edit-controls, .switch-container {
+     flex-direction: column;
+     gap: 10px;
+  }
+  #toast-confirm button {
+    margin: 5px 0;
+    width: 100%; /* Stack buttons */
+  }
+   #leave-btn {
+       width: 80%; /* Make leave button wider on mobile */
+   }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+  .container { padding: 15px 10px; }
+  h1 { font-size: 1.4rem; margin-bottom: 20px;}
+  input[type="text"], input[type="email"], input[type="password"], select, textarea { padding: 10px 12px; }
+  button { padding: 10px 12px; }
+  li { padding: 10px 12px; font-size: 0.9rem; }
+  #rules-announcements-display { font-size: 0.9rem; }
+  #user-info strong { min-width: 80px; } /* Adjust label alignment */
+}
+
+/* --- Confirmation Toast Styles --- */
+.confirm-toast {
+    position: fixed;
+    bottom: 30px; /* Position like regular toast or centered */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--container-bg); /* Use container background */
+    backdrop-filter: blur(var(--backdrop-blur));
+    color: var(--text-color);
+    padding: 20px 25px;
+    border-radius: var(--border-radius-lg); /* Make it look more like a dialog */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    z-index: 1005; /* Above regular toasts */
+    border: 1px solid var(--input-border);
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateX(-50%) translateY(20px); /* Start slightly lower */
+  }
+  
+  .confirm-toast:not(.hidden) { /* Style when shown */
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+  
+  .confirm-toast p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: #fff; /* Brighter text for question */
+  }
+  
+  .confirm-buttons {
+    display: flex;
+    justify-content: space-around; /* Space out buttons */
+    gap: 15px;
+  }
+  
+  .confirm-buttons button {
+    width: auto; /* Allow natural sizing */
+    min-width: 80px;
+    padding: 8px 20px;
+    margin: 0; /* Remove default button margins */
+    font-size: 0.95rem;
+    box-shadow: none; /* Simpler look */
+  }
+  
+  /* Style confirm buttons */
+  #confirm-yes-btn {
+    background-color: var(--danger-color);
+    color: white;
+  }
+  #confirm-yes-btn:hover {
+    background-color: var(--danger-hover);
+  }
+  
+  #confirm-no-btn {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: 1px solid var(--input-border);
+  }
+  #confirm-no-btn:hover {
+    background-color: rgba(40, 40, 60, 0.9);
+    border-color: var(--accent-color);
+  }

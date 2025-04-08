@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Volleyball Game</title>
+  <!-- Add Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Link External Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏐 Join the Game</h1>
+
+    <!-- Input Section -->
+    <div id="join-section">
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <select id="skill">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate" selected>Intermediate</option> <!-- Default selected -->
+        <option value="competitive">Competitive</option>
+      </select>
+      <button id="join-btn">Join Game</button>
+    </div>
+
+    <!-- Display User Info While Waiting (Initially Hidden) -->
+    <div id="user-info" class="hidden">
+      <h2>Your Info</h2>
+      <p><strong>Name:</strong> <span id="display-name"></span></p>
+      <p><strong>Skill Level:</strong> <span id="display-skill"></span></p>
+      <!-- Leave button moved outside -->
+    </div>
+
+    <!-- Waiting Message (Initially Hidden) -->
+    <p id="status-msg" class="hidden">⏳ Waiting for team sorting...</p>
+
+    <!-- Team Info Container (Initially Hidden) -->
+    <div id="team-info" class="hidden">
+      <h2 id="team-name">Your Team</h2> <!-- Team name goes here -->
+      <ul id="team-mates"></ul>
+       <!-- Leave button moved outside -->
+    </div>
+
+     <!-- Leave Button (Shown when joined/waiting/teamed) -->
+     <button id="leave-btn" class="hidden">🚪 Leave Game</button> <!-- Initially hidden -->
+
+    <!-- Rules and Announcements Section -->
+    <div id="rules-announcements-section">
+      <h3>Rules & Announcements</h3>
+      <p id="rules-announcements-display">Loading rules...</p>
+    </div>
+  </div>
+
+  <!-- Add this inside the <body>, near the other #toast -->
+<div id="confirm-toast" class="confirm-toast hidden">
+  <p id="confirm-msg"></p>
+  <div class="confirm-buttons">
+    <button id="confirm-yes-btn">Yes</button>
+    <button id="confirm-no-btn">No</button>
+  </div>
+</div>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <script src="firebase.js" type="module"></script>
+  <script src="member.js" type="module"></script>
+  <!-- Keep the Cloudflare script if it's necessary -->
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92d474b99aa7ef65',t:'MTc0NDE0MzUyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

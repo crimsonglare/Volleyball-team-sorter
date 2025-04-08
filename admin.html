@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+  <!-- Add Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Link External Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Removed inline styles -->
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Login Form -->
+    <div id="login-form">
+      <h2>Admin Login</h2>
+      <input type="email" id="admin-email" placeholder="Enter Admin Email" required />
+      <input type="password" id="admin-password" placeholder="Enter Password" required />
+      <button id="admin-login-btn">Login</button>
+      <p id="login-error"> </p> <!-- Use   for placeholder to prevent collapse -->
+    </div>
+
+    <!-- Admin Dashboard (Initially Hidden) -->
+    <div id="admin-dashboard" class="hidden">
+      <p>Welcome, <input type="text" id="admin-name-input" placeholder="Your display name" /></p>
+
+      <label for="admin-skill">Your Skill Level:</label>
+      <select id="admin-skill">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="competitive">Competitive</option>
+      </select>
+      <button id="save-admin-btn">Save Details</button>
+
+      <!-- Toggle Playing -->
+      <div class="switch-container">
+         <span id="toggle-label">Not Playing</span>
+         <label class="switch">
+           <input type="checkbox" id="playing-toggle">
+           <span class="slider round"></span>
+         </label>
+       </div>
+
+
+      <!-- Manual Add Player -->
+      <div id="add-player-section">
+        <h2>Add Player Manually</h2>
+        <input type="text" id="manual-name" placeholder="Enter player name" />
+        <select id="manual-skill">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="competitive">Competitive</option>
+        </select>
+        <button id="add-player-btn">Add to Waiting List</button>
+      </div>
+
+      <!-- Waiting List -->
+      <h2>Waiting List (<span id="waiting-count">0</span>)</h2>
+      <ul id="waiting-list">
+         <!-- JS Populates this -->
+         <p>No players waiting.</p> <!-- Show initially -->
+      </ul>
+
+
+      <!-- Team Management Buttons -->
+      <h2>Team Management</h2>
+      <button id="sort-teams-btn">Sort Initial Teams</button>
+      <button id="resort-teams-btn">Resort All Players</button>
+      <button id="reset-btn">Reset All Data</button>
+
+      <!-- Sorted Teams Display -->
+      <h2>Sorted Teams</h2>
+
+      <!-- Edit Mode Controls -->
+      <div class="edit-controls">
+         <label class="switch edit-mode-switch">
+           <input type="checkbox" id="edit-mode-toggle" />
+           <span class="slider round"></span>
+         </label>
+         <span id="edit-mode-label">Edit Mode Off</span> <!-- Label changes with JS -->
+         <button id="undo-btn" disabled class="hidden">Undo Last Move</button> <!-- Start hidden and disabled -->
+       </div>
+
+      <div id="teams-container">
+        <p>Teams have not been sorted yet.</p>
+      </div>
+
+      <!-- Trash Bin for Drag/Drop -->
+      <div id="trash-bin" class="hidden"> <!-- Start hidden -->
+         🗑️ Drag player here to remove from teams
+      </div>
+
+       <!-- Rules and Announcements Admin Section -->
+      <div id="rules-announcements-section">
+         <h3>Edit Rules & Announcements</h3>
+         <textarea id="rules-announcements-input" rows="5" placeholder="Enter rules and announcements here..."></textarea>
+         <button id="save-rules-announcements-btn">Save Rules</button>
+         <h4>Current Display:</h4>
+         <p id="rules-announcements-display">No rules set.</p>
+      </div>
+
+      <!-- Logout -->
+      <button id="admin-logout-btn">Logout</button>
+    </div> <!-- End Admin Dashboard -->
+
+     <!-- Toast Confirmation for Reset -->
+     <div id="toast-confirm" class="hidden"> <!-- Start hidden -->
+       <p>Are you sure you want to reset all waiting players and teams?</p>
+       <button id="confirm-reset-btn">Yes, Reset</button>
+       <button id="cancel-reset-btn">Cancel</button>
+     </div>
+
+  </div> <!-- End Container -->
+
+   <!-- Custom Toast Area for Admin -->
+   <!-- JS will create/manage this, but we style .custom-toast -->
+
+  <script src="firebase.js" type="module"></script>
+  <script src="admin.js" type="module"></script>
+</body>
+</html>
