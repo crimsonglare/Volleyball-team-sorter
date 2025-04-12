@@ -3,13 +3,14 @@ import { getDatabase, ref, set, push, onValue , remove ,get} from "https://www.g
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "XXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX",
-  authDomain: "your-project-id.firebaseapp.com",
-  databaseURL: "https://your-project-id-default-rtdb.firebaseio.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project-id.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyDB8E1LowIQ_CEYRl9UsepcdGZKAkhpTEg",
+    authDomain: "vball-1310a.firebaseapp.com",
+    databaseURL: "https://vball-1310a-default-rtdb.firebaseio.com/",
+    projectId: "vball-1310a",
+    storageBucket: "vball-1310a.appspot.com",
+    messagingSenderId: "108994186564",
+    appId: "1:108994186564:web:30761a37c2c839a017db11",
+    measurementId: "G-ML9FF222NJ"
 };
 
 
